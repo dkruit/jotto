@@ -66,7 +66,7 @@ def main():
     solutions = []
 
     for i_1, letter_1 in enumerate(ALPHABET[:2]):
-        print(f"Iterating over word_1 with letter {letter_1}")
+        print(f"Finding solutions with words with a {letter_1} (iteration {i_1+1}/2)")
 
         for word_1 in tqdm(words[letter_1]):
             solution = [word_1]
