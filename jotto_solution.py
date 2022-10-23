@@ -115,6 +115,7 @@ def main():
                                             # break
 
                                         for word_5 in words[letter_5]:
+                                            solution = [word_1, word_2, word_3, word_4]
                                             if words_have_unique_letters(solution, word_5):
                                                 solution = [word_1, word_2, word_3, word_4, word_5]
                                                 solutions.append(solution)
