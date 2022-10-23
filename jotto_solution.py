@@ -83,7 +83,7 @@ def main():
                         remaining_letters = remove_letters_in_solution(solution)
 
                     for i_3, letter_3 in enumerate(remaining_letters[:2]):
-                        if len(solution) != 2:
+                        if len(solution) < 2:
                             break
 
                         if i_2 == 1 and i_3 == 0:
@@ -96,7 +96,7 @@ def main():
                                 remaining_letters = remove_letters_in_solution(solution)
 
                             for i_4, letter_4 in enumerate(remaining_letters[:2]):
-                                if len(solution) != 3:
+                                if len(solution) < 3:
                                     break
 
                                 if i_3 == 1 and i_4 == 0:
@@ -109,7 +109,7 @@ def main():
                                         remaining_letters = remove_letters_in_solution(solution)
 
                                     for i_5, letter_5 in enumerate(remaining_letters[:2]):
-                                        if len(solution) != 4:
+                                        if len(solution) < 4:
                                             break
 
                                         if i_4 == 1 and i_5 == 0:
