@@ -1,6 +1,7 @@
 from typing import List
 from tqdm import tqdm
 from time import perf_counter
+import csv
 
 ALPHABET = ["q", "x", "j", "z", "v", "f", "w", "b", "k", "g", "p", "m", "h",
             "d", "c", "y", "t", "l", "n", "u", "r", "o", "i", "s", "e", "a"]
@@ -120,11 +121,11 @@ def main():
                                                 solution = [word_1, word_2, word_3, word_4, word_5]
                                                 solutions.append(solution)
 
-    with open("solutions.txt", "w") as f:
+    with open("solutions.csv", "w") as f:
         f.write(f"Found {len(solutions)} solutions:\n")
+        writer = csv.writer(f, delimiter=',')
         for solution in solutions:
-            f.write(f"{solution}\n")
-
+            writer.writerow(solution)
 
 if __name__ == "__main__":
     t0 = perf_counter()
