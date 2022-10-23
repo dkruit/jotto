@@ -131,5 +131,4 @@ if __name__ == "__main__":
     t0 = perf_counter()
     main()
     t1 = perf_counter()
-    with open("solutions.txt", "a") as f:
-        f.write(f"Took {t1-t0} seconds")
+    print(f"Took {t1-t0} seconds")
