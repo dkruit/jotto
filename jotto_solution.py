@@ -72,8 +72,8 @@ def main():
             remaining_letters = remove_letters_in_solution(solution)
 
             for i_2, letter_2 in enumerate(remaining_letters[:2]):
-                # if i_1 + i_2 > 1:
-                    # break
+                if i_1 == 1 and i_2 == 0:
+                    continue
 
                 for word_2 in words[letter_2]:
                     solution = [word_1]
@@ -85,8 +85,8 @@ def main():
                         if len(solution) != 2:
                             break
 
-                        # if i_1 + i_2 + i_3 > 1:
-                            # break
+                        if i_2 == 1 and i_3 == 0:
+                            continue
 
                         for word_3 in words[letter_3]:
                             solution = [word_1, word_2]
@@ -98,8 +98,8 @@ def main():
                                 if len(solution) != 3:
                                     break
 
-                                # if i_1 + i_2 + i_3 + i_4 > 1:
-                                    # break
+                                if i_3 == 1 and i_4 == 0:
+                                    continue
 
                                 for word_4 in words[letter_4]:
                                     solution = [word_1, word_2, word_3]
@@ -111,14 +111,15 @@ def main():
                                         if len(solution) != 4:
                                             break
 
-                                        # if i_1 + i_2 + i_3 + i_4 + i_5 > 1:
-                                            # break
+                                        if i_4 == 1 and i_5 == 0:
+                                            continue
 
                                         for word_5 in words[letter_5]:
                                             solution = [word_1, word_2, word_3, word_4]
                                             if words_have_unique_letters(solution, word_5):
                                                 solution = [word_1, word_2, word_3, word_4, word_5]
                                                 solutions.append(solution)
+
     with open("solutions.txt", "w") as f:
         f.write(f"Found {len(solutions)} solutions:\n")
         for solution in solutions:
