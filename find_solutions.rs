@@ -36,15 +36,14 @@ fn main() -> Result<(), Error> {
 }
 
 fn word_has_unique_letters(word: &String) -> bool {
-    let mut result: bool = true;
     for (i, letter_1) in word.get(..word.len()-1).expect("REASON").chars().enumerate(){
         for letter_2 in word.get(i+1..).expect("REASON").chars(){
             if letter_1 == letter_2{
-                result = false;
+                return false;
             }
         }
     }
-    return result;
+    return true;
 }
 
 fn words_have_unique_letters(old_words: &Vec<String>, new_word: &String) -> bool {
