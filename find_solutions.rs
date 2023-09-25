@@ -36,9 +36,8 @@ fn main() -> Result<(), Error> {
 
     // Write solutions to file
     let mut out_file = File::create(OUTPUTFILE)?;
-    let mut line = "abc".into();
     for solution in &solutions {
-        line = csv_line_from_solution(solution);
+        let line = csv_line_from_solution(solution);
         out_file.write(line.as_bytes())?;
     }
 
