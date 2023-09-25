@@ -126,7 +126,6 @@ def find_solutions(words):
 
 def save_solutions(filename: str, solutions: List[List[str]]):
     with open(filename, "w") as f:
-        f.write(f"Found {len(solutions)} solutions:\n")
         writer = csv.writer(f, delimiter=',')
         for solution in solutions:
             writer.writerow(solution)
