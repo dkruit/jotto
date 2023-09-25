@@ -91,7 +91,6 @@ fn find_solutions(words_map: &HashMap<char, Vec<String>>) -> Vec<Vec<String>> {
         for word_1 in &words_map[&letter_1] {
             let mut solution = vec!(word_1.clone());
             let mut remaining_letters = remove_letters_in_solution(&solution);
-            println!("Finding solutions with {}", word_1);
 
             for (i_2, letter_2) in remaining_letters.clone().get(..2).expect("Reason").chars()
                 .enumerate() {
