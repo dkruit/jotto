@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use std::io::BufReader;
 use std::io::BufRead;
+use std::io::Write;
 use std::io::Error;
 use std::path::Path;
 use std::fs::File;
@@ -32,6 +33,15 @@ fn main() -> Result<(), Error> {
     let solutions = find_solutions(&words_map);
     let n_solutions = solutions.len();
     println!("Found {} solutions", n_solutions);
+
+    // Write solutions to file
+    let mut out_file = File::create(OUTPUTFILE)?;
+    let mut line = "abc".into();
+    for solution in &solutions {
+        line = csv_line_from_solution(solution);
+        out_file.write(line.as_bytes())?;
+    }
+
     return Ok(())
 }
 
@@ -79,6 +89,12 @@ fn remove_letters_in_solution(solution: &Vec<String>) -> String {
         }
     }
     return letters;
+}
+
+fn csv_line_from_solution(solution: &Vec<String>) -> String {
+    let mut result = solution.join(",");
+    result.push('\n');
+    return result;
 }
 
 fn find_solutions(words_map: &HashMap<char, Vec<String>>) -> Vec<Vec<String>> {
