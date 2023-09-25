@@ -5,6 +5,8 @@ import csv
 
 ALPHABET = ["q", "x", "j", "z", "v", "f", "w", "b", "k", "g", "p", "m", "h",
             "d", "c", "y", "t", "l", "n", "u", "r", "o", "i", "s", "e", "a"]
+INPUTFILE = "words_alpha.txt"
+OUTPUTFILE = "solutions.csv"
 
 
 def word_has_unique_letters(word: str):
@@ -61,12 +63,11 @@ def read_input_to_dict(file: str):
     return output
 
 
-def main():
-    words = read_input_to_dict("words_alpha.txt")
+def find_solutions(words):
     solutions = []
 
     for i_1, letter_1 in enumerate(ALPHABET[:2]):
-        print(f"Finding solutions with words with a {letter_1} (iteration {i_1+1}/2)")
+        print(f"Finding solutions with a word containing the letter {letter_1} (iteration {i_1 + 1}/2)")
 
         for word_1 in tqdm(words[letter_1]):
             solution = [word_1]
@@ -120,15 +121,23 @@ def main():
                                             if words_have_unique_letters(solution, word_5):
                                                 solution = [word_1, word_2, word_3, word_4, word_5]
                                                 solutions.append(solution)
+    return solutions
 
-    with open("solutions.csv", "w") as f:
+
+def save_solutions(filename: str, solutions: List[List[str]]):
+    with open(filename, "w") as f:
         f.write(f"Found {len(solutions)} solutions:\n")
         writer = csv.writer(f, delimiter=',')
         for solution in solutions:
             writer.writerow(solution)
 
+
+def main():
+    words = read_input_to_dict(INPUTFILE)
+
+    solutions = find_solutions(words)
+    save_solutions(OUTPUTFILE, solutions)
+
+
 if __name__ == "__main__":
-    t0 = perf_counter()
     main()
-    t1 = perf_counter()
-    print(f"Took {t1-t0} seconds")
