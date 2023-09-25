@@ -1,4 +1,4 @@
-## Two Implementation to find solutions for the Jotto, as covered by Stand-up Maths on [YouTube](https://www.youtube.com/watch?v=c33AZBnRHks&t=1506s).
+## Two Implementation to find solutions for the Jotto problem, as covered by Stand-up Maths on [YouTube](https://www.youtube.com/watch?v=c33AZBnRHks&t=1506s).
 
 The problem is to find 5 five-letter words, which have 25 unique letters from a list of words. There is a Python and a Rust implementation, which follow the same algorithm.
 
