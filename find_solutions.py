@@ -133,11 +133,14 @@ def save_solutions(filename: str, solutions: List[List[str]]):
 
 
 def main():
+    t1 = perf_counter()
     words = read_input_to_dict(INPUTFILE)
 
     solutions = find_solutions(words)
     save_solutions(OUTPUTFILE, solutions)
+    t2 = perf_counter()
 
+    print(f"Found {len(solutions)} solutions, took {t2-t1:.3f} seconds.")
 
 if __name__ == "__main__":
     main()
