@@ -20,6 +20,7 @@ To run the Rust script, which will typically take around half a minute:
 6. The results can be found in the file `rust_solutions.csv`
 
 To run the Kotlin script:
+
 2. Install a kotlin compile (version 2.X)
 3. Compile the script: `kotlinc find_solutions.kt -include-runtime -d find_solutions.jar`
 4. Run the script: `java -jar find_solutions.jar`
